@@ -26,6 +26,13 @@ const addTask = (task) => {
     console.log("Task added:", task);
 }
 
+const removeTasks = (index) =>{
+    const tasks = loadTasks();
+    tasks.splice(0,index-1);
+    saveTasks(tasks);
+}
+
+
 const listTasks = () => {
     const tasks = loadTasks();
     for (x in tasks) {
@@ -33,12 +40,6 @@ const listTasks = () => {
     }
 }
 
-const removeTasks = (index) => {
-    const tasks = loadTasks();
-    const updated = tasks.filter((_, i) => i !== index);
-    saveTasks(updated);
-    console.log("Task removed");
-}
 
 const command = process.argv[2];
 const argument = process.argv[3];
