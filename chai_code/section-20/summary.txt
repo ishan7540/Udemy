@@ -1,0 +1,3 @@
+In this section we basically had a brief about databases
+sql vs nosql 
+setting up mongodb and basic lingo
