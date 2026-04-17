@@ -67,4 +67,3 @@ userSchemea.pre("save", async function (next) {
 });
 
 export const User = mongoose.model("User", userSchemea);
-test;
