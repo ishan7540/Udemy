@@ -60,12 +60,10 @@ const userSchemea = new Schema(
   },
 );
 
-userSchemea.pre("save", async function(next){
-    if(!this.isModified("password"))
-    this.password = bcrypt.hash(this.password,10)
-    next()
-})
-
+userSchemea.pre("save", async function (next) {
+  if (!this.isModified("password"))
+    this.password = bcrypt.hash(this.password, 10);
+  next();
+});
 
 export const User = mongoose.model("User", userSchemea);
-.
