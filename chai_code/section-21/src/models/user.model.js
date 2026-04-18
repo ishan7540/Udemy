@@ -27,10 +27,6 @@ const userSchemea = new Schema(
       lowercase: true,
       trim: true,
     },
-    email: {
-      type: String,
-      trim: true,
-    },
     password: {
       type: String,
       required: [true, "Password is required"],
@@ -65,5 +61,9 @@ userSchemea.pre("save", async function (next) {
     this.password = bcrypt.hash(this.password, 10);
   next();
 });
+
+userSchemea.methods.isPasswordCorrect = async function (password) {
+  return await bcrypt.compare(password, this.password);
+};
 
 export const User = mongoose.model("User", userSchemea);
